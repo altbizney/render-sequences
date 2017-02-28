@@ -23,9 +23,11 @@ If you get a permissions error running the scripts, try making them executable:
 
 ## Notes
 
-Frame sequences are renamed in place, so for maximum safety you should run the `./loop.sh` script on separate copy.
+Frame sequences are renamed in place, so for maximum safety you should run the `./loop.sh` script on a separate copy.
 
 If an output file already exists at `./output/<ID>.mov`, that frame sequence will be skipped. This allows you to re-run the script easily. If you want to rerender a sequence, just delete the output and run `./loop.sh` again.
+
+If you exit the script while `ffmpeg` is running, the incomplete render will not be cleaned up. And, given the previous point, will not be re-rendered. Be sure to clean up manually if this happens.
 
 Frame sequences will only be resorted if both of the following criteria are not met:
 - `input/<ID>_<00000>.png` is present
